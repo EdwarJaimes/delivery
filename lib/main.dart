@@ -1,22 +1,27 @@
+import 'package:delivery/src/login/login_page.dart';
+import 'package:delivery/src/utils/my_colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp>{
+  @override
+  Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'delivery flutter',
+      initialRoute: 'login',
+      //routes: {'login':(Buildcontext context) => LoginPage()},
+      theme: ThemeData(primaryColor: MyColors.primaryColor),
     );
   }
 }
