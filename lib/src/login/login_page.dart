@@ -1,13 +1,9 @@
-import 'dart:html';
-import 'dart:ui';
-
-import 'package:delivery/main.dart';
-import 'package:delivery/src/utils/my_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget{
-  LoginPage({required Key key}) : super(key: key);
+  const LoginPage({ Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -54,22 +50,22 @@ Widget _buttonLogin(){
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-   /*   child: ElevationButton(
+      child: ElevatedButton(
         onPressed: (){},
         child: Text('ingresar'),
-        style: ElevationButton.styleFrom(
+        style: ElevatedButton.styleFrom(
           primary: MyColors.primaryColor,
           shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           padding: EdgeInsets.symmetric(vertical: 15)),
-      ),*/
+      ),
     );
 }
 Widget _textFieldEmail(){
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 60, vertical: 5),
       decoration: BoxDecoration(
-        color: MyColors.primaryOpacotyColor,
+        color: MyColors.primaryOpacityColor,
         borderRadius: BorderRadius.circular(30)),
       child: TextField(
         decoration: InputDecoration(
@@ -88,7 +84,7 @@ Widget _textFieldEmail(){
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 60, vertical: 5),
       decoration: BoxDecoration(
-          color: MyColors.primaryOpacotyColor,
+          color: MyColors.primaryOpacityColor,
           borderRadius: BorderRadius.circular(30)),
       child: TextField(
         decoration: InputDecoration(
