@@ -18,10 +18,10 @@ class _LoginPageState extends State<LoginPage>{
         width:  double.infinity,
           child: Column(
             children: [
-             /* _imageBanner(),
+              _imageBanner(),
               _textFieldEmail(),
               _textFieldPassword(),
-              _buttonLogin(),*/
+              _buttonLogin(),
               _textDontHaveAcount(),
 
             ],
@@ -47,6 +47,73 @@ class _LoginPageState extends State<LoginPage>{
         )
       ],
     );
+  }
+  Widget _buttonLogin(){
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+      child: ElevatedButton(
+        onPressed: (){},
+        child:  Text('Ingresar'),
+        style: ElevatedButton.styleFrom(
+          primary:  MyColors.primaryColor,
+          shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+    padding: EdgeInsets.symmetric(vertical: 15)),
+
+      ),
+    );
+  }
+  Widget _textFieldEmail(){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 60, vertical: 5),
+      decoration: BoxDecoration(
+        color: MyColors.primaryOpacotyColor,
+        borderRadius: BorderRadius.circular(30)),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: 'correo electronico',
+          hintStyle: TextStyle(color:  MyColors.primaryColor),
+          border:  InputBorder.none,
+          contentPadding: EdgeInsets.all(15),
+          prefixIcon: Icon(
+            Icons.email,
+            color: MyColors.primaryColor,
+          )),
+      ),
+    );
+  }
+  Widget _textFieldPassword(){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 60, vertical: 5),
+      decoration: BoxDecoration(
+          color: MyColors.primaryOpacotyColor,
+          borderRadius: BorderRadius.circular(30)),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: 'Contraseña',
+            hintStyle: TextStyle(color:  MyColors.primaryColor),
+            border:  InputBorder.none,
+            contentPadding: EdgeInsets.all(15),
+            prefixIcon: Icon(
+              Icons.lock,
+              color: MyColors.primaryColor,
+            )),
+      ),
+    );
+
+  }
+  Widget _imageBanner(){
+    return Container(
+      margin: EdgeInsets.only(
+        top: MediaQuery.of(context).size.height * 0.12,
+        bottom: MediaQuery.of(context).size.height * 0.15),
+        child: Image.asset(
+          'assets/image/delivery.png',
+          height: 200,
+          width: 200,
+        ),
+      );
   }
 
 }
