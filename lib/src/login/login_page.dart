@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import '../utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget{
@@ -104,10 +105,9 @@ Widget _textFieldEmail(){
       margin: EdgeInsets.only(
         top: MediaQuery.of(context).size.height * 0.12,
         bottom: MediaQuery.of(context).size.height * 0.15),
-        child: Image.asset(
-          'assets/img/delivery.png',
-          height: 200,
-          width: 200,
+        child: Lottie.asset(
+          'assets/img/delivery.json',
+          repeat: true,
         ),
       );
   }
