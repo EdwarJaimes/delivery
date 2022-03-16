@@ -21,7 +21,9 @@ class _MyAppState extends State<MyApp>{
       title: 'delivery flutter',
       initialRoute: 'login',
       routes: {'login':(BuildContext context) => LoginPage()},
-      theme: ThemeData(primaryColor: MyColors.primaryColor),
+      theme: ThemeData(
+          primaryColor: MyColors.primaryColor,
+    fontFamily: 'Roboto'),
     );
   }
 }

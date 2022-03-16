@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -15,15 +17,30 @@ class _LoginPageState extends State<LoginPage>{
   Widget build(BuildContext context){
     return Scaffold(
         body: Container(
-          width:  double.infinity,
-          child: Column(
+          child: Stack(
             children: [
-              _imageBanner(),
-              _textFieldEmail(),
-              _textFieldPassword(),
-              _buttonLogin(),
-              _textDontHaveAcount(),
+              Positioned(
+                child: _circleLogin(),
+                top: -100,
+                left: -110,
+              ),
+              Positioned(
+                child: _textLogin(),
+                top: 52,
+                left: 26,
+              ),
+              Column(
 
+                children: [
+
+                  //_imageBanner(),
+                  _lottieAnimation(),
+                  _textFieldEmail(),
+                  _textFieldPassword(),
+                  _buttonLogin(),
+                  _textDontHaveAcount(),
+                ],
+              )
             ],
           ),
         ));
@@ -100,7 +117,7 @@ Widget _textFieldEmail(){
       ),
     );
   }
-  Widget _imageBanner(){
+/*  Widget _imageBanner(){
     return Container(
       margin: EdgeInsets.only(
         top: MediaQuery.of(context).size.height * 0.12,
@@ -110,5 +127,30 @@ Widget _textFieldEmail(){
           repeat: true,
         ),
       );
+  }*/
+  Widget _circleLogin(){
+    return Container(
+      width: 240,
+      height: 240,
+      decoration: BoxDecoration(
+        borderRadius : BorderRadius.circular(100),
+        color: MyColors.primaryColor),
+    );
+  }
+  Widget _textLogin(){
+    return Text(
+      'login',
+      style: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 22,
+        fontFamily: 'NimbusSans'),
+    );
+  }
+  Widget _lottieAnimation(){
+    return Container(
+      margin: EdgeInsets.only(top: 150, bottom: 30),
+      child: Lottie.asset('assets/img/json/delivery.json'),
+    );
   }
 }
