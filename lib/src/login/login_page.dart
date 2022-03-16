@@ -152,5 +152,6 @@ Widget _textFieldEmail(){
       margin: EdgeInsets.only(top: 150, bottom: 30),
       child: Lottie.asset('assets/img/json/delivery.json'),
     );
+    //comntario de prueba inicio del repositorio
   }
 }
