@@ -20,7 +20,10 @@ class _MyAppState extends State<MyApp>{
       debugShowCheckedModeBanner: false,
       title: 'delivery flutter',
       initialRoute: 'login',
-      routes: {'login':(BuildContext context) => LoginPage()},
+      routes: {
+        'login':(BuildContext context) => LoginPage()},
+        'register':(BuildContext context) => RegisterPage()
+  },
       theme: ThemeData(
           primaryColor: MyColors.primaryColor,
     fontFamily: 'Roboto'),

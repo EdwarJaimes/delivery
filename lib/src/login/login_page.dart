@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
 import '../utils/my_colors.dart';
 
@@ -13,10 +14,20 @@ class LoginPage extends StatefulWidget{
 
 }
 class _LoginPageState extends State<LoginPage>{
+  LoginController _con = new LoginController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SchedulerBinding.instance!.addPersistentFrameCallback((timeStamp) {
+      _con.init(context);
+    });
+  }
   @override
   Widget build(BuildContext context){
     return Scaffold(
         body: Container(
+          width: double.maxFinite,
           child: Stack(
             children: [
               Positioned(
@@ -29,17 +40,17 @@ class _LoginPageState extends State<LoginPage>{
                 top: 52,
                 left: 26,
               ),
-              Column(
-
-                children: [
-
-                  //_imageBanner(),
-                  _lottieAnimation(),
-                  _textFieldEmail(),
-                  _textFieldPassword(),
-                  _buttonLogin(),
-                  _textDontHaveAcount(),
-                ],
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    //_imageBanner(),
+                    _lottieAnimation(),
+                    _textFieldEmail(),
+                    _textFieldPassword(),
+                    _buttonLogin(),
+                    _textDontHaveAcount(),
+                  ],
+                ),
               )
             ],
           ),
@@ -56,10 +67,13 @@ class _LoginPageState extends State<LoginPage>{
         SizedBox(
           width: 9,
         ),
-        Text(
-          'registrate',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: MyColors.primaryColor),
+        GestureDetector(
+          onTap: _con.goToRegisterPage,
+          child: Text(
+            'registrate',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, color: MyColors.primaryColor),
+          ),
         )
       ],
     );
@@ -138,7 +152,7 @@ Widget _textFieldEmail(){
     );
   }
   Widget _textLogin(){
-    return Text(
+    return const Text(
       'login',
       style: TextStyle(
         color: Colors.white,
